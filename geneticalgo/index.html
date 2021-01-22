@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript">
+	"use strict"
+	
+	//var tCities = window.prompt("Enter number of cities: ");
+	var tCities = getParamValue('param1');
+	//cities_array = JSON.parse(tCitiescode);
+	//console.log(tCities);
+	var cities_array = JSON.parse(decodeURI(tCities));
+	console.log(cities_array);		
+	function getParamValue(paramName)
+	{
+	    var url = window.location.search.substring(1); //get rid of "?" in querystring
+	    var qArray = url.split('&'); //get key-value pairs
+	    for (var i = 0; i < qArray.length; i++) 
+	    {
+	        var pArr = qArray[i].split('='); //split key and value
+	        if (pArr[0] == paramName) 
+	            return pArr[1]; //return value
+	    }
+	}
+  </script>
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" src="libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <script language="javascript" type="text/javascript" src="dna.js"></script>
+</head>
+<body>
+</body>
+</html>

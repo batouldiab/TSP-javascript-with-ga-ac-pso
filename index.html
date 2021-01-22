@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TSP</title>
+	<script type="text/javascript">
+	"use strict"
+
+	var tCities = window.prompt("Enter number of cities: ");
+	
+	var cities_objects = [];
+		
+	for(var i=0; i<tCities; i++) {
+		
+			var city = {};
+		
+			//create random city points
+			var w=Math.floor(Math.random() * 250);
+			var h=Math.floor(Math.random() * 250);
+			
+			city = {x: w, y: h};
+			
+			cities_objects.push(city);
+	}
+	var cities_json = '';
+	cities_json = JSON.stringify(cities_objects);
+		console.log(cities_json);
+		
+	var src1= "geneticalgo/index.html?param1="+cities_json;
+	var src2= "ac dynamic cities.html?param1="+cities_json;
+	
+	//var f = document.getElementById('myIframe2');
+	//f.src = src2;
+	//function myFunction2(){
+	//	$('#myIframe2').attr('src', "ac dynamic cities.html?param1="+tCities); 
+	//} 
+
+	//window.onload = function()
+	//{
+	//  document.getElementById("myIframe2").setAttribute("src", src2);
+	//}
+	function iframeDidLoad() {
+		top.document.getElementById('myIframe1').setAttribute("src",src1);
+	    top.document.getElementById('myIframe2').setAttribute("src",src2);
+	}
+		
+	</script>
+	
+	<style>
+		body, html {
+		  width: 100%;
+		  height: 100%;
+		  margin: 0;
+		}
+		
+		.container {
+		  width: 100%;
+		  height: 100%;
+		}
+		
+		.leftpane {
+		    width: 33.33%;
+		    height: 100%;
+		    float: left;
+		    background-color: black;
+		    border-collapse: collapse;
+		}
+		
+		.middlepane {
+		    width: 33.33%;
+		    height: 100%;
+		    float: left;
+		    background-color: white;
+		    border-collapse: collapse;
+		}
+		
+		.rightpane {
+		  width: 33.33%;
+		  height: 100%;
+		  position: relative;
+		  float: right;
+		  background-color: black;
+		  border-collapse: collapse;
+		}
+		
+		.toppane {
+		  width: 33.33%;
+		  height: 100px;
+		  border-collapse: collapse;
+		  background-color: #4da6ff;
+		}
+	</style>
+</head>
+<body onLoad="iframeDidLoad();">
+	<div class="container">
+	 <!-- <div class="toppane">Test Page</div> -->
+	  <div class="leftpane">
+	      <iframe name="myIframe1" id="myIframe1" height="800" width="500" title="iframe"></iframe>
+	  </div>
+	  <div class="middlepane">
+		  <iframe name="myIframe2" id="myIframe2" id="iframe2"  height="800" width="500" title="iframe"></iframe>
+	  </div>
+	  <div class="rightpane">
+	    <h1>Test Page</h1></div>
+	</div>
+</body>
+</html>
